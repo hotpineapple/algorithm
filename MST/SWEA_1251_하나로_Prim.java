@@ -55,13 +55,14 @@ public class SWEA_1251_하나로_Prim {
 					}
 				}
 				
-				result += min;
-				isVisited[minVertex] = true;
+				result += min; // 총 비용 업데이트
+				isVisited[minVertex] = true; // 방문 처리
 				
 				// 신장트리에 포함되지 않은 정점에 대하여, 신장트리에 포함된 정점으로부터 연결된 간선의 최소 비용을 업데이트 
 				// 최적화 : 모든 정점에 대하여 N번 비교 - O(N^2)하는 것이 아니라 
-				// 		   신장트리에 어떤 정점(가장 최소비용인 정점)을 연결할 때마다 업데이트 - O(N)
-        //       마치 a,b,c 중 최소값을 구할 때 a와 b 중 b가 더 작다면, c는 이 b만 대소비교를 하면 되는 것과 같다.(a와 비교 안해도 됨)
+				//		신장트리에 어떤 정점(가장 최소비용인 정점)을 연결할 때마다 업데이트 - O(N)
+				// 	 	즉 60-61 line 에서 신장트리에 연결한 정점에 대해서 간선 비용 업데이트 - O(N)
+        			// => 마치 a,b,c 중 최소값을 구할 때 a와 b 중 b가 더 작다면, c는 이 b만 대소비교를 하면 되는 것과 같다.(a와 비교 안해도 됨)
 				for (int i = 0; i < N; i++) {
 					if(!isVisited[i] && adj[minVertex][i] != 0 && minEdge[i] > adj[minVertex][i]) {
 						minEdge[i] = adj[minVertex][i];
