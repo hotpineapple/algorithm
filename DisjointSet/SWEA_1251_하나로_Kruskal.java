@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class SWEA_1251_하나로 {
+public class SWEA_1251_하나로_Kruskal {
 	
 	static class Edge implements Comparable<Edge>{		
 		int from, to;
