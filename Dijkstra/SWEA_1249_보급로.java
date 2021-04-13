@@ -45,14 +45,18 @@ public class SWEA_1249_보급로 {
             int[] dc = {0,1,0,-1};
              
             while(!pq.isEmpty()) {
+                // 1. 방문하지 않은 정점 중 출발지에서 자신으로 오는 비용이 최소인  정점 선택
                 Edge curr = pq.poll();
  
                 int currR = curr.pos[0];
                 int currC = curr.pos[1];
-//              System.out.println("pos: "+currR+", "+currC);
-                isVisited[currR][currC] = true;
+
+                isVisited[currR][currC]) continue; // 복구비용(깊이)가 최소값이 아닌 원소도 heap에 남아있다가(삭제되는 것이 아님 우선순위만 뒤로 밀려남) poll 될 수 있으므로 불필요한 비교연산 생략.
+                isVisited[currR][currC] = true;
                 if(currR == N-1 && currC == N-1) break;
-                 
+                
+                // 2. 위에서 선택된 정점(r,c)의 인접 정점(4방탐색) 중 방문하지 않은 정점에 대하여
+			          // 기존 값과 선택정점 경유시의 값을 비교하여 최소값으로 minTime업데이트
                 for (int d = 0; d < 4; d++) {
                      
                     int nextR = currR + dr[d];
