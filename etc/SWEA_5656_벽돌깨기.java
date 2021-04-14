@@ -66,9 +66,9 @@ public class SWEA_5656_벽돌깨기 {
 	}
 
 	private static void play(int[] arr) {
-		for (int i = 0; i < N; i++) shoot(arr[i]);
+		for (int i = 0; i < N; i++) drop(arr[i]);
 		
-		min = Math.min(min, countBlock());
+		min = Math.min(min, countBlock()); // 남은 블록 개수 최소값 
 	}
 
 	private static int countBlock() {
@@ -81,7 +81,7 @@ public class SWEA_5656_벽돌깨기 {
 		return res;
 	}
 
-	private static void shoot(int c) {
+	private static void drop(int c) {
 //		System.out.println("shoot "+ c +"th col :");
 		for (int r = 0; r < H; r++) {
 			if(map[r][c] != 0) {
