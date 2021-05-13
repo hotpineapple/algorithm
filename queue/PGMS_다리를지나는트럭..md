@@ -1,4 +1,11 @@
+## 다리를 지나는 트럭
 
+> 큐를 이용하여 주어진 순서대로 트럭의 무게와 다리가 버틸 수 있는 무게를 비교하며 최소시간 구하기
+
+### 어려웠던 점
+* 트럭의 위치를 조정하는 것을 구현하는 것이 어려웠다.
+
+### 코드
 ```
 public static int solution(int bridge_length, int weight, int[] truck_weights) {
         int answer = 1;
