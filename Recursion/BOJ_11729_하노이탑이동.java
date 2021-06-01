@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-	static char map[][];
+
 	static int cnt;
 	static StringBuilder sb = new StringBuilder();
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -23,6 +23,7 @@ public class Main {
 	private static void hanoi(int start, int aux, int end, int n) {
 
 		cnt++;
+		
 		if(n==1) {
 			sb.append(start + " " + end + "\n");
 			return;
