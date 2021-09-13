@@ -6,7 +6,6 @@ import java.util.StringTokenizer;
 public class boj_nm2 {
 
 	static int N, M, output[];
-	static boolean[] isSelected;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
