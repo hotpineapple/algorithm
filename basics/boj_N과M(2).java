@@ -14,7 +14,6 @@ public class boj_nm2 {
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		isSelected = new boolean[N];
 		output = new int[M];
 		
 		combination(0,1);
