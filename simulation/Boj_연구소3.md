@@ -1,3 +1,10 @@
+## 연구소 3
+#### 어려웠던 점
+* 비활성 바이러스도 활성화 되어 추후에 빈 공간으로 퍼질 수 있다는 점
+* 그러나 비활성 바이러스들만 활성화 되는 데 소요된 시간은 무의미한 시간이라는 점
+* 이를 해결하기 위해 Cell 클래스를 만들어 그 칸 까지 가는 시간과 함께 원래 어떤 칸이었는지를 저장해두고, 빈 칸이었던 칸에 대해서만 time을 계산했다.
+
+````
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -132,3 +139,4 @@ public class Main {
 	}
    
 }
+```
