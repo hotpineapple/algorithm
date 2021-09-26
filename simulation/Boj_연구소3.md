@@ -30,7 +30,7 @@ public class Main {
 	}
 	static class Cell{
 		int time;
-		Type type; // 빈공간이면 true, 비활성 바이러스 공간이면 false;
+		Type type; 
 		Cell(int time, Type type){
 			this.time = time;
 			this.type = type;
