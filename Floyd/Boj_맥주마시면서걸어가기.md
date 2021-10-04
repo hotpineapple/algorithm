@@ -34,41 +34,39 @@ public class Main {
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     	int TC = Integer.parseInt(br.readLine());
     	for (int tc = 0; tc < TC; tc++) {
-			//입력
+		//입력
     		N = Integer.parseInt(br.readLine()); //편의점 개수
-			arr = new Pos[N+2];
-			StringTokenizer st = new StringTokenizer(br.readLine()," ");
-			arr[0] = new Pos(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
-			dist = new int[N+2][N+2];
-			for (int i = 1; i <= N; i++) {
-				st = new StringTokenizer(br.readLine()," ");
-				arr[i] = new Pos(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
-			}
-			
+		arr = new Pos[N+2];
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		arr[0] = new Pos(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+		dist = new int[N+2][N+2];
+		for (int i = 1; i <= N; i++) {
 			st = new StringTokenizer(br.readLine()," ");
-			arr[N+1] = new Pos(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
-			
-			//인접행렬 만들기 - 편의점 들를때마다 맥주는 풀로 조달한다고 가정함 -> 거리 1000 이하면 연결 처리함
-			for (int i = 0; i <= N+1; i++) {
-				for (int j = 0; j <= N+1; j++) {
-					int temp = Math.abs(arr[i].x-arr[j].x) + Math.abs(arr[i].y-arr[j].y); //맨하탄거리
-					if(temp <= 1000) dist[i][j] = 1;
+			arr[i] = new Pos(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+		}
+
+		st = new StringTokenizer(br.readLine()," ");
+		arr[N+1] = new Pos(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+
+		//인접행렬 만들기 - 편의점 들를때마다 맥주는 풀로 조달한다고 가정함 -> 거리 1000 이하면 연결 처리함
+		for (int i = 0; i <= N+1; i++) {
+			for (int j = 0; j <= N+1; j++) {
+				int temp = Math.abs(arr[i].x-arr[j].x) + Math.abs(arr[i].y-arr[j].y); //맨하탄거리
+				if(temp <= 1000) dist[i][j] = 1;
+			}
+		}
+
+		//플로이드
+		for(int k = 0; k <= N+1 ; k++) { 
+			for(int i = 0; i <= N+1; i++) {
+				for(int j = 0; j <= N+1; j++) { 
+					if(dist[i][k]==1 && dist[k][j]==1) dist[i][j] = 1;
 				}
 			}
-			
-			//플로이드
-			for(int k = 0; k <= N+1 ; k++) { 
-				for(int i = 0; i <= N+1; i++) {
-					for(int j = 0; j <= N+1; j++) { 
-						// i에서 j까지 (1) 1 ~ k-1번 정점을 (각각) 거쳐서 가는 경우 계산된 최단거리 dist[i][j]와 
-						// 		   (2) k번 정점을 거쳐서 가는 거리를 비교
-						if(dist[i][k]==1 && dist[k][j]==1) dist[i][j] = 1;
-					}
-				}
-			}
-			
-			//출력
-			System.out.println(dist[0][N+1]==1?"happy":"sad");
+		}
+
+		//출력
+		System.out.println(dist[0][N+1]==1?"happy":"sad");
 		}
 		   	
 	}
