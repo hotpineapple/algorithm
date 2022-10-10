@@ -1,0 +1,81 @@
+package e;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	static Command[] cmds;
+	static String[] Wheels = new String[5];
+	static boolean[] vst;
+	static class Command {
+		int num;
+		int dir;
+		public Command(int num, int dir) {
+			this.num = num;
+			this.dir = dir;
+		}
+	}
+ 	public static void main(String[] args) throws IOException {
+ 		// 입력
+ 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 		
+ 		for(int i=1;i<=4;i++) {
+ 			Wheels[i] = br.readLine();
+ 		}
+ 		int K = Integer.parseInt(br.readLine());
+ 		cmds = new Command[K];
+ 		StringTokenizer st = null;
+ 		for(int i=0;i<K;i++) {
+ 			st = new StringTokenizer(br.readLine());
+ 			cmds[i]=new Command(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken()));
+ 		}
+ 		
+ 		// 처리
+ 		for(int i=0;i<K;i++) {
+ 			Command cmd = cmds[i];
+ 			vst = new boolean[5];
+ 			go(cmd.num, cmd.dir);
+// 			print();
+ 		}
+ 		
+ 		// 출력
+ 		System.out.println(getScore());
+ 	}
+	private static void print() {
+		for(int i=1;i<=4;i++) {
+			System.out.println(Wheels[i]);
+		}
+		
+	}
+	private static int getScore() {
+		int sum=0;
+ 		if(Wheels[1].charAt(0)=='1')sum+=1;
+ 		if(Wheels[2].charAt(0)=='1')sum+=2;
+ 		if(Wheels[3].charAt(0)=='1')sum+=4;
+ 		if(Wheels[4].charAt(0)=='1')sum+=8;
+ 		
+ 		return sum;
+ 		
+	}
+	private static void go(int num, int dir) {
+		vst[num]=true;
+		String target = Wheels[num];
+		if(num<=0||num>=5) return;
+		// 왼쪽
+		if(num>1) {
+			if(Wheels[num-1].charAt(2)!=target.charAt(6)&&!vst[num-1]) go(num-1, dir==1?-1:1);
+		}
+		// 오른쪽
+		if(num<4) {
+			if(Wheels[num+1].charAt(6)!=target.charAt(2)&&!vst[num+1]) go(num+1, dir==1?-1:1);
+		}
+		
+		if(dir==1) {
+			Wheels[num] = target.charAt(7)+target.substring(0,7);
+		}else {
+			Wheels[num] = target.substring(1,8)+target.charAt(0); 
+		}
+	}
+ }
