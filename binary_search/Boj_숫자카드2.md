@@ -1,3 +1,5 @@
+# 각 카드가 몇장인지 저장하는 배열을 이용해서 시간 초과 피하기
+```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -45,3 +47,4 @@ public class Main {
 		return "0";
 	}
  }
+```
