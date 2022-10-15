@@ -1,4 +1,6 @@
-# 각 카드가 몇장인지 저장하는 배열을 이용해서 시간 초과 피하기
+# 숫자카드2
+- 정렬 후 이분탐색
+- 각 카드가 몇장인지 저장하는 배열을 이용해서 시간 초과 피하기
 ```java
 import java.io.BufferedReader;
 import java.io.IOException;
