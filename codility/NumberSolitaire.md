@@ -1,5 +1,7 @@
 # NUMBER SOLITAIRE
 - SCORE 100% 
+- 유형 DP
+- 유의할 점: 음수처리를 위한 NIN_VALUE 초기화
 ```java
 public int solution(int[] A) {
     int N = A.length;
