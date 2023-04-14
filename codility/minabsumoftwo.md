@@ -1,6 +1,7 @@
 # minabsumoftwo
 - 유형: 투포인터? 캐터필러 메서드
-- 유의할점
+- 유의할점: 없음
+- 
 ```java
 // you can also use imports, for example:
 import java.util.*;
