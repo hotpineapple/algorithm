@@ -1,20 +1,19 @@
 class Solution {
     public int[] sortedSquares(int[] nums) {
-       
-        Map<Integer,Integer> map = new TreeMap<>(); 
-        for (int i=0;i<nums.length;i++) {
-            int square = (int)(Math.pow(nums[i],2));
-            int cnt = map.getOrDefault(square,0);
-            map.put(square,cnt+1);
+        int len = nums.length;
+        int l = 0;
+        int r = len - 1;
+        int[] res = new int[len];
+        for (int i = len - 1; i >= 0; i--) {
+            if (Math.abs(nums[l]) > Math.abs(nums[r])) {
+                res[i] = (int) Math.pow(nums[l], 2);
+                l++;
+            } else {
+                res[i] = (int) Math.pow(nums[r], 2);
+                r--;
+            }
         }
-        
-        int[] res = new int[nums.length];
-        int i=0;
-        for (Integer key : map.keySet()) {
-            int cnt = map.get(key);
-            for(int j=0;j<cnt;j++) res[i++] = key;
-        }
-        
+
         return res;
     }
 }
