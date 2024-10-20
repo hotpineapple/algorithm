@@ -6,7 +6,7 @@ class Solution {
         int resultCount = 0;
         for(;startIndex<nums.length;startIndex++) {
             if(lastIndex == nums.length) {
-                nums[startIndex] = 0;
+                break;
             }
             for(;lastIndex<nums.length;lastIndex++) {
                 if(nowNumber < nums[lastIndex]) {
