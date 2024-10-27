@@ -18,7 +18,7 @@ class Solution {
                 break;
             }else {
                 while(i>=0) {
-                    System.out.println(i+","+carry);
+                    // System.out.println(i+","+carry);
                     int sum = a.charAt(i)-'0'+carry;
                     sb.insert(0,sum%2);
                     carry = sum/2;
